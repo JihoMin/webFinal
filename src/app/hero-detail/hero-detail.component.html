@@ -1,0 +1,27 @@
+<div *ngIf="hero">
+  
+  <h2>{{ hero.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{hero.id}}</div>
+
+  <div fxLayout="column">
+    <label>name:
+      <input matInput [(ngModel)]="hero.name" placeholder="name">
+    </label>
+    <label>subtitle:
+      <input matInput [(ngModel)]="hero.subtitle" placeholder="subtitle">
+    </label>
+    <label>content:
+      <textarea matInput [(ngModel)]="hero.content" placeholder="content" rows="2"></textarea>
+    </label>
+    <label>image URL:
+      <textarea matInput [(ngModel)]="hero.imgURL" placeholder="content" rows="5"></textarea>
+    </label>
+  </div>
+
+  <label for="file">File:</label>
+  <input type="file" (change)="upload($event)" accept=".png,.jpg" />
+
+</div>
+
+<button matButton (click)="updateHero()">save</button>
+<button matButton (click)="goBack()">go back</button>
